@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, constr
 from typing import Optional
 from datetime import datetime
 from enum import Enum
@@ -11,7 +11,7 @@ class TaskStatus(str, Enum):
 
 
 class TaskCreate(BaseModel):
-    title: str
+    title: constr(min_length=1)  # Add validation to ensure title is not empty
     description: Optional[str] = None
 
 
