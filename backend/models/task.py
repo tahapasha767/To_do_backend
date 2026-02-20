@@ -23,7 +23,7 @@ class TaskUpdate(BaseModel):
 
 class Task(BaseModel):
     id: int
-    title: str
+    title: constr(min_length=1) # enforcing title check here as well
     description: Optional[str]
     status: TaskStatus
     created_at: datetime
